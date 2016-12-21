@@ -41,8 +41,14 @@ This will specify that you would like to output SNP calls. This will use Varscan
 -h = print this document
 
 
+USAGE CONSIDERATIONS:
+For mapping, aligning and SNP calling, the quality thresholds and variant frequencies are hard coded into the pipeline file. You should ALWAYS re-evaluate whether those cutoffs and parameters are appropriate for your data, and it might be appropriate in some cases to try a few different sets of parameters for some of these steps. I have added in commented lines above each command in the program that actually specifies the parameters. This line will says something like, "the following line of code is the one that actually carries out the mapping using bbmap..." In every case, this is to help you identify the line that has the parameters in it, and I have added comments to briefly outline what those parameters specify. However, you should read the documentation for the actual program yourself to become familiar with the options and algorithms implemented by each program.
+
+Additionally, this program will not automatically output a file that contains the commands that you ran. You will therefore need to document your commands and parameters on your own. 
+
 To RUN: 
 Once all of the dependent programs are installed, simply navigate into the directory containing your fastq files. Run the script with whichever arguments you choose in that directory. 
 
 EXAMPLE: PacBio_mapping_v2.py CA04.fa -m -a -tx -s 
 This will loop through all the fastq files in the current directory and perform mapping, alignment with translator X, and call SNPs. 
+
